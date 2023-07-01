@@ -7,7 +7,7 @@ def leiaInt(msg):
         except (ValueError, NameError, TypeError):
             print("\033[1;31mOps, por favor, informe apenas números inteiros!\033[m")
         except (KeyboardInterrupt):
-            print('\n\033[1;31mPara sair, digite "0"\033[m')
+            print('\n\033[1;31mPara sair, digite "0" no menu\033[m')
         else:
             return (n1)
 
@@ -18,37 +18,48 @@ def leiaFloat(msg):
         try:
             n1 = float(input(msg))
         except (NameError, ValueError, TypeError):
-            print('\033[1;31mOps, por favor, digite apenas número de ponto flutuante!\033[m')
+            print('\033[1;31mOps, por favor, digite apenas números de ponto flutuante!\033[m')
 
         except (KeyboardInterrupt):
-            print('\033[1;31Para sair, digite "0"\033[m')
+            print('\n\033[1;31mPara sair, digite "0" no menu\033[m')
         else:
             return (n1)
 
+def leValores():
+    n1 = leiaFloat("1º valor: ")
+    n2 = leiaFloat("2º valor: ")
+    return [n1, n2]
+
 # Retorna a soma de dois números de ponto flutuante
-def somar(n1, n2) -> float:
-    return (n1 + n2)
+def somar() -> None:
+    valores =  leValores()
+    result = valores[0] + valores[1]
+    print(f"{valores[0]} + {valores[1]} = {result}")
 
 # Retorna a subtração de dois número de ponto flutuante
-def subtrair(n1, n2) -> float:
-    return (n1 - n2)
+def subtrair() -> None:
+    valores = leValores()
+    result = valores[0] - valores[1]
+    print(f"{valores[0]} - {valores[1]} = {result}")
 
 # Retorna a multiplicação de dois números ponto flutuante
-def multiplicar(n1, n2) -> float:
-    return (n1 * n2)
+def multiplicar() -> None:
+    valores = leValores()
+    result = valores[0] * valores[1]
+    print(f"{valores[0]} x {valores[1]} = {result}")
 
 # Retorna a divisão de dois números ponto flutuante
-def dividir(n1, n2) -> float:
-    try:
-        return (n1 / n2)
-    except (ZeroDivisionError):
-        print("\033[1;31mOps, não é possível dividir um número por 0!!!\033[m")
-
-# Retorna dois novos valores a serem usados nas operações
-def NovosValores() -> float:
-    n1 = leiaInt("Primeiro valor: ")
-    n2 = leiaInt("Segundo valor: ")
-    return [n1, n2]
+def dividir() -> None:
+    while True:
+        valores = leValores()
+        try:
+            result = valores[0] / valores[1]
+        except (ZeroDivisionError):
+            print("\033[1;31mÉ impossível dividir um número por 0!")
+            print("Tente novamente...\033[m")
+        else:
+            print(f"{valores[0]} / {valores[1]} = {result}")
+            break
 
 # Imprime na tela a potência de um número de base "x" e expoente "y" (o usuário escolhe)
 def potenciar():
@@ -126,3 +137,45 @@ def tangente():
     n = float(input("Valor da tangente a ser calculada: "))
     result = tan(radians(n))
     print(f"Tangente de {n}° = {result:.1f}")
+
+
+# Calcula o logaritmo de uma dada base e logaritmando
+def logaritmo():
+    from math import log
+    from time import sleep
+
+
+    base = float(input("Base do logaritmo: "))
+    logaritmando = float(input("Logaritmando do logaritmo: "))
+    result = log(logaritmando, base)
+    print(f"Calculando logaritmo de base {base:.1f} e de logaritmando {logaritmando:.1f}...")
+    sleep(1)
+    print(f"= {result:.1f}")
+
+
+def media():
+    QuantidadeValores = media =  0
+    valores = list()
+    listaTemporaria = list()
+    while True:
+        QuantidadeValores = leiaInt("Calcular a média entre quantos valores? ")
+        if (QuantidadeValores < 2):
+            print("\033[1;31mImpossível calcular a média!")
+            print("Tente novamente...\033[m")
+        else:
+            break
+    
+    for cont in range(0, QuantidadeValores):
+        listaTemporaria.append(leiaInt(f"{cont + 1}º valor: "))
+    valores.extend(listaTemporaria)
+        
+    media = (sum(valores)) / QuantidadeValores
+    print(f"A média vale {media:.1f}")
+
+
+'''def valorMinimoMaximo():
+    lista_temporaria = []
+    lista_valores = []
+    quantidade_valores = int(input("Quantid"))
+    while True:
+        lista_temporaria.append(leiaFloat())'''

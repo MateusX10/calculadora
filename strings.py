@@ -14,7 +14,8 @@ def menu():
 [ 11 ] - Seno
 [ 12 ] - Cosseno
 [ 13 ] - Tangente
-[ 14 ] - Novos valores
+[ 14 ] - Logaritmo
+[ 15 ] - Média
 [ 0 ] - Sair
 ''')
     

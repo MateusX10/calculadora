@@ -10,31 +10,28 @@ escolha_user = result_soma = result_sub = result_mult = result_div = 0
 menu_opcs = ["SOMAR", "SUBTRAIR", "MULTIPLICAR", "DIVIDIR", "POTENCIAÇÃO",
              "RADICIAÇÃO", "FATORIAL", "PORCENTAGEM", "ARREDONDAR PARA CIMA",
              "ARREDONDAR PARA BAIXO", "SENO", "COSSENO", "TANGENTE",
-             "NOVOS VALORES", "SAIR"]
+             "LOGARITMO", "MÉDIA", "SAIR"]
 # Retorna uma lista com 2 valores a serem usados nas operações matemáticas
-valores = NovosValores()
 while True:
     # Imprime o menu de opções na tela
     menu()
     # a operação matemática escolhida pelo usuário
     escolha_user = leiaInt("Faça a sua escolha: ")
     title(menu_opcs[escolha_user - 1])
+
+    # <<< MENU >>>
     # Operação de adição
     if (escolha_user == 1):
-        result_soma = somar(valores[0], valores[1])
-        print(f"{valores[0]} + {valores[1]} = {result_soma}")
+        somar()
     # Operação de subtração
     elif (escolha_user == 2):
-        result_sub = subtrair(valores[0], valores[1])
-        print(f"{valores[0]} - {valores[1]} =  {result_sub}")
-    # Operção de multiplicação
+        subtrair()
+    # Operação de multiplicação
     elif (escolha_user == 3):
-        result_mult = multiplicar(valores[0], valores[1])
-        print(f"{valores[0]} x {valores[1]} =  {result_mult}")
+       multiplicar()
     # Operação de divisão
     elif (escolha_user == 4):
-        result_div = dividir(valores[0], valores[1])
-        print(f'{valores[0]} / {valores[1]} = {result_div}')
+        dividir()
     # Operação de potenciação
     elif (escolha_user == 5):
         potenciar()
@@ -67,10 +64,11 @@ while True:
     elif (escolha_user == 13):
         tangente()
 
-    # Operação de ler novos valores pelo teclado (os valores usados nas operações serão alterados)
     elif (escolha_user == 14):
-        valores = NovosValores()
+        logaritmo()
 
+    elif (escolha_user == 15):
+        media()
     # Sair do programa
     elif (escolha_user == 0):
         print("<<< VOLTE SEMPRE >>>")
