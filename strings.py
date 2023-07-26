@@ -16,6 +16,13 @@ def menu():
 [ 13 ] - Tangente
 [ 14 ] - Logaritmo
 [ 15 ] - Média
+[ 16 ] - mínimo e máximo
+[ 17 ] - decimal para binário
+[ 18 ] - binário para decimal
+[ 19 ] - Decimal para octal
+[ 20 ] - Octal para decimal
+[ 21 ] - Decimal para hexadecimal
+[ 22 ] - Hexadecimal para decimal
 [ 0 ] - Sair
 ''')
     

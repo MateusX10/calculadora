@@ -10,16 +10,24 @@ escolha_user = result_soma = result_sub = result_mult = result_div = 0
 menu_opcs = ["SOMAR", "SUBTRAIR", "MULTIPLICAR", "DIVIDIR", "POTENCIAÇÃO",
              "RADICIAÇÃO", "FATORIAL", "PORCENTAGEM", "ARREDONDAR PARA CIMA",
              "ARREDONDAR PARA BAIXO", "SENO", "COSSENO", "TANGENTE",
-             "LOGARITMO", "MÉDIA", "SAIR"]
+             "LOGARITMO", "MÉDIA", "MÍNIMO E MÁXIMO", "DECIMAL PARA BINÁRIO",
+              "BINÁRIO PARA DECIMAL", "DECIMAL PARA OCTAL",
+               "OCTAL PARA DECIMAL", "DECIMAL PARA HEXADECIMAL",
+               "HEXADECIMAL PARA DECIMAL", "SAIR"]
 # Retorna uma lista com 2 valores a serem usados nas operações matemáticas
 while True:
     # Imprime o menu de opções na tela
     menu()
     # a operação matemática escolhida pelo usuário
     escolha_user = leiaInt("Faça a sua escolha: ")
-    title(menu_opcs[escolha_user - 1])
+    
+    if (escolha_user >= len(menu_opcs) or escolha_user < 0):
+        print("\033[1;31mPor favor, digite apenas os números especificados no menu...\033[m")
+        continue
 
+    title(menu_opcs[escolha_user - 1])
     # <<< MENU >>>
+
     # Operação de adição
     if (escolha_user == 1):
         somar()
@@ -64,19 +72,44 @@ while True:
     elif (escolha_user == 13):
         tangente()
 
+    # Operação de calcular logaritmo
     elif (escolha_user == 14):
         logaritmo()
 
+    # Operação de Calcular a média
     elif (escolha_user == 15):
         media()
+
+    # Operação de definir o valor máximo e o valor mínimo de uma lista de valores
+    elif (escolha_user == 16):
+        valorMinimoMaximo()
+
+    # Operação de converter valor decimal em binário
+    elif (escolha_user == 17):
+        decimalParaBinario()
+
+    # Operação de converter valor binário em decimal
+    elif (escolha_user == 18):
+        binarioParaDecimal()
+
+    elif (escolha_user == 19):
+        decimalParaOctal()
+
+    elif (escolha_user == 20):
+        octalParaDecimal()
+
+    elif (escolha_user == 21):
+        decimalParaHexadecimal()
+
+    elif (escolha_user == 22):
+        hexadecimalParaDecimal()
     # Sair do programa
     elif (escolha_user == 0):
         print("<<< VOLTE SEMPRE >>>")
         quit()
 
     # Opção inválida
-    else:
-        print("\033[1;31mPor favor, digite apenas os números especificados no menu...\033[m")
+    '''else:'''
     
     sleep(1.5)
     

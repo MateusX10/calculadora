@@ -153,6 +153,7 @@ def logaritmo():
     print(f"= {result:.1f}")
 
 
+# Calcula a média entre n valores determinados pelo usuário
 def media():
     QuantidadeValores = media =  0
     valores = list()
@@ -173,9 +174,61 @@ def media():
     print(f"A média vale {media:.1f}")
 
 
-'''def valorMinimoMaximo():
-    lista_temporaria = []
+# Imprime o maior e o menor valor dentre uma lista de valores informados pelo usuário
+def valorMinimoMaximo():
+    quantidade_valores = 0
     lista_valores = []
-    quantidade_valores = int(input("Quantid"))
     while True:
-        lista_temporaria.append(leiaFloat())'''
+        quantidade_valores = leiaInt("Quantos valores a lista terá? ")
+        if (quantidade_valores < 1):
+            print("\033[1;31mImpossível definir um mínimo e um máximo em uma lista vazia!")
+            print("Por favor, tente novamente...\033[m")
+        else:
+            break
+    for vlr in range(0, quantidade_valores):
+        lista_valores.append(leiaFloat(f"{vlr + 1}º valor: "))
+    vlr_min = min(lista_valores)
+    vlr_max = max(lista_valores)
+    print(f"Valor mínimo = {vlr_min} \nValor máximo = {vlr_max}")
+
+
+# Converte um valor decimal em binário
+def decimalParaBinario():
+    valor = leiaInt("Valor decimal a ser convertido: ")
+    decimalConvertidoParaBin = bin(valor)[2:]
+    print(f'{"decimal":>10}{"binário":>20}')
+    print(f"{valor:>10}  {decimalConvertidoParaBin:>20}")
+
+# Converte um valor binário em decimal
+def binarioParaDecimal():
+    valorBinario = input("Valor binário: ")
+    binarioConvertidoParaDecimal = int(valorBinario, 2)
+    print(f"{'Valor binário':>10}{'Valor decimal':>20}")
+    print(f"{valorBinario:>10}{binarioConvertidoParaDecimal:>20}")
+
+
+def decimalParaOctal():
+    valor = leiaInt("Valor decimal a ser convertido: ")
+    decimalParaOctal = oct(valor)[2:]
+    print(f"{'decimal':>10}{'octal':>20}")
+    print(f'{valor:>10}{decimalParaOctal:>20}')
+
+def octalParaDecimal():
+    valorEmOctal = input("Valor em octal: ")
+    octalConvertidoEmDecimal = int(valorEmOctal, 8)
+    print(f"{'octal':>10}{'decimal':>20}")
+    print(f"{valorEmOctal:>10}{octalConvertidoEmDecimal:>20}")
+
+
+def decimalParaHexadecimal():
+    valor = leiaInt("Valor decimal: ")
+    decimalConvertidoEmHexadecimal = hex(valor)[2:]
+    print(f"{'decimal':>10}{'hexadecimal':>20}")
+    print(f"{valor:>10}{decimalConvertidoEmHexadecimal:>20}")
+
+
+def hexadecimalParaDecimal():
+    valor = input("Valor em hexadecimal: ")
+    hexadecimalConvertidoEmDecimal = int(valor, 16)
+    print(f"{'HEXADECIMAL':>10}{'DECIMAL':>20}")
+    print(f"{valor:>10}{hexadecimalConvertidoEmDecimal:>20}")
