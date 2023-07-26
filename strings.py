@@ -23,6 +23,7 @@ def menu():
 [ 20 ] - Octal para decimal
 [ 21 ] - Decimal para hexadecimal
 [ 22 ] - Hexadecimal para decimal
+[ 23 ] - Módulo
 [ 0 ] - Sair
 ''')
     

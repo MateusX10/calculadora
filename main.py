@@ -13,7 +13,7 @@ menu_opcs = ["SOMAR", "SUBTRAIR", "MULTIPLICAR", "DIVIDIR", "POTENCIAÇÃO",
              "LOGARITMO", "MÉDIA", "MÍNIMO E MÁXIMO", "DECIMAL PARA BINÁRIO",
               "BINÁRIO PARA DECIMAL", "DECIMAL PARA OCTAL",
                "OCTAL PARA DECIMAL", "DECIMAL PARA HEXADECIMAL",
-               "HEXADECIMAL PARA DECIMAL", "SAIR"]
+               "HEXADECIMAL PARA DECIMAL","MÓDULO", "SAIR"]
 # Retorna uma lista com 2 valores a serem usados nas operações matemáticas
 while True:
     # Imprime o menu de opções na tela
@@ -103,14 +103,15 @@ while True:
 
     elif (escolha_user == 22):
         hexadecimalParaDecimal()
+
+    elif (escolha_user == 23):
+        calculaMóduloDeUmNumero()
+    
     # Sair do programa
     elif (escolha_user == 0):
         print("<<< VOLTE SEMPRE >>>")
         quit()
 
-    # Opção inválida
-    '''else:'''
-    
     sleep(1.5)
     
 

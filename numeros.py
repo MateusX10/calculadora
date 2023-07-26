@@ -232,3 +232,10 @@ def hexadecimalParaDecimal():
     hexadecimalConvertidoEmDecimal = int(valor, 16)
     print(f"{'HEXADECIMAL':>10}{'DECIMAL':>20}")
     print(f"{valor:>10}{hexadecimalConvertidoEmDecimal:>20}")
+
+
+def calculaMóduloDeUmNumero():
+    num = leiaInt("Valor: ")
+    modulo = num * -1 if num < 0 else num
+    print(f"{'valor':>10}{'módulo':>20}")
+    print(f"{num:>8}{modulo:>19}")
