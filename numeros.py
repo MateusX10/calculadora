@@ -239,3 +239,39 @@ def calculaMóduloDeUmNumero():
     modulo = num * -1 if num < 0 else num
     print(f"{'valor':>10}{'módulo':>20}")
     print(f"{num:>8}{modulo:>19}")
+
+def calculaModaDeUmaListaDeNumeros():
+    listaNumeros = []
+    valores = {}
+    cont = 1
+    ultimoValorAdicionado = maiorLista = moda =  0
+    valorAdicionadoAoDicionario = False
+    totalNumeros = leiaInt("Quantidade de números: ")
+    while (cont <= totalNumeros):
+        listaNumeros.append(leiaInt(f"{cont}º valor: "))
+        ultimoValorAdicionado = listaNumeros[-1]
+        cont += 1
+        # verifica se o dict está vazio
+        if valores:
+            for lista in valores.values():
+                if ultimoValorAdicionado in lista:
+                    lista.append(ultimoValorAdicionado)
+                    valorAdicionadoAoDicionario = True
+        else:
+            if (not valorAdicionadoAoDicionario):
+                valores[f"{ultimoValorAdicionado}"] = [ultimoValorAdicionado]
+            valorAdicionadoAoDicionario = False
+
+    #define a moda
+    for lista in valores.values():
+        if maiorLista == 0:
+            maiorLista = len(lista)
+            moda = lista[0]
+        else:
+            if len(lista) > maiorLista:
+                maiorLista = len(lista)
+                moda = lista[0]
+    print(f"A moda da lista de números {listaNumeros} vale {moda}")
+
+
+    
