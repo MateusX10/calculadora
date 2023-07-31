@@ -92,24 +92,31 @@ while True:
     elif (escolha_user == 18):
         binarioParaDecimal()
 
+    # Operação de conversão de decimal para octal
     elif (escolha_user == 19):
         decimalParaOctal()
 
+    # Operação de conversão de octal para decimal
     elif (escolha_user == 20):
         octalParaDecimal()
 
+    # Operação de conversão de decimal para hexadecimal
     elif (escolha_user == 21):
         decimalParaHexadecimal()
 
+    # Operação de conversão de hexadecimal para  decimal
     elif (escolha_user == 22):
         hexadecimalParaDecimal()
 
+    # Operação de calcular o módulo
     elif (escolha_user == 23):
         calculaMóduloDeUmNumero()
 
+    # Operação de calcular a moda 
     elif (escolha_user == 24):
         calculaModaDeUmaListaDeNumeros()
 
+    # Operação de calcular a mediana
     elif (escolha_user == 25):
         calculaMedianaDeUmaListaDeNumeros()
     

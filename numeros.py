@@ -1,5 +1,11 @@
+import sys 
+
+# define a quantidade máxima de dígitos da saída de uma operação matemática
+sys.set_int_max_str_digits(900000000)
+
+
 # Valida um valor inteiro lido pelo teclado
-def leiaInt(msg):
+def leiaInt(msg) -> int:
     n1 = 0
     while True:
         try:
@@ -12,7 +18,7 @@ def leiaInt(msg):
             return (n1)
 
 # Valida um valor ponto flutuante pelo teclado
-def leiaFloat(msg):
+def leiaFloat(msg) -> float:
     n1 = 0.0
     while True:
         try:
@@ -25,7 +31,7 @@ def leiaFloat(msg):
         else:
             return (n1)
 
-def leValores():
+def leValores() -> list:
     n1 = leiaFloat("1º valor: ")
     n2 = leiaFloat("2º valor: ")
     return [n1, n2]
@@ -62,14 +68,14 @@ def dividir() -> None:
             break
 
 # Imprime na tela a potência de um número de base "x" e expoente "y" (o usuário escolhe)
-def potenciar():
+def potenciar() -> None:
     base = leiaFloat("Número: ")
     expoente = leiaInt("Índice: ")
     result = base ** expoente
     print(f"{base} ** {expoente} = {result}")
 
 # Imprime na tela a raiz quadrada de um número "x"
-def RaizQuadrada():
+def RaizQuadrada() -> None:
     from math import sqrt
 
 
@@ -78,7 +84,7 @@ def RaizQuadrada():
     print(f"Raiz quadrada = {result:.1f}")
 
 # Imprime na terla o fatorial de um número, juntamento com todo o cálculo por trás do resultado
-def fatorial():
+def fatorial() -> None:
     f = 1
     n = leiaInt("Número a ser calculado: ")
     print(f"Fatorando número {n}!...")
@@ -88,14 +94,14 @@ def fatorial():
         print(f'{vlr} x ' if vlr != 1 else f'{vlr} = {f}', end='')
 
 # Calcula o percentual de um número
-def percentual():
+def percentual() -> None:
     n1 = leiaFloat("Número: ")
     percentual = leiaFloat("Percentual: ")
     result = n1 * percentual / 100
     print(f'{n1} % {percentual} = {result}')
 
 # Arredonda um número para cima
-def ArredondarParaCima():
+def ArredondarParaCima() -> None:
     from math import ceil
 
 
@@ -104,7 +110,7 @@ def ArredondarParaCima():
     print(f'{n1} arredondado para cima = {result}')
 
 # Arredonda um número para baixo
-def ArredondarParaBaixo():
+def ArredondarParaBaixo() -> None:
     from math import floor
 
     n1 = leiaFloat('Informe o número que deseja arredondar para baixo: ')
@@ -112,7 +118,7 @@ def ArredondarParaBaixo():
     print(f'{n1} arredondado para baixo = {result}')
 
 # Calcula o seno
-def seno():
+def seno() -> None:
     from math import sin, radians
 
 
@@ -121,7 +127,7 @@ def seno():
     print(f"Seno de {n}° = {result:.1f}")
 
 # Calcula o cosseno
-def cosseno():
+def cosseno() -> None:
     from math import cos, radians
 
 
@@ -130,7 +136,7 @@ def cosseno():
     print(f"Cosseno de {n}° = {result:.1f}")
 
 # Calcula a tangente
-def tangente():
+def tangente() -> None:
     from math import tan, radians
 
 
@@ -140,7 +146,7 @@ def tangente():
 
 
 # Calcula o logaritmo de uma dada base e logaritmando
-def logaritmo():
+def logaritmo() -> None:
     from math import log
     from time import sleep
 
@@ -154,7 +160,7 @@ def logaritmo():
 
 
 # Calcula a média entre n valores determinados pelo usuário
-def media():
+def media() -> None:
     QuantidadeValores = media =  0
     valores = list()
     listaTemporaria = list()
@@ -175,7 +181,7 @@ def media():
 
 
 # Imprime o maior e o menor valor dentre uma lista de valores informados pelo usuário
-def valorMinimoMaximo():
+def valorMinimoMaximo() -> None:
     quantidade_valores = 0
     lista_valores = []
     while True:
@@ -193,54 +199,54 @@ def valorMinimoMaximo():
 
 
 # Converte um valor decimal em binário
-def decimalParaBinario():
+def decimalParaBinario() -> None:
     valor = leiaInt("Valor decimal a ser convertido: ")
     decimalConvertidoParaBin = bin(valor)[2:]
     print(f'{"decimal":>10}{"binário":>20}')
     print(f"{valor:>10}  {decimalConvertidoParaBin:>20}")
 
 # Converte um valor binário em decimal
-def binarioParaDecimal():
+def binarioParaDecimal() -> None:
     valorBinario = input("Valor binário: ")
     binarioConvertidoParaDecimal = int(valorBinario, 2)
     print(f"{'Valor binário':>10}{'Valor decimal':>20}")
     print(f"{valorBinario:>10}{binarioConvertidoParaDecimal:>20}")
 
 
-def decimalParaOctal():
+def decimalParaOctal() -> None:
     valor = leiaInt("Valor decimal a ser convertido: ")
     decimalParaOctal = oct(valor)[2:]
     print(f"{'decimal':>10}{'octal':>20}")
     print(f'{valor:>10}{decimalParaOctal:>20}')
 
-def octalParaDecimal():
+def octalParaDecimal() -> None:
     valorEmOctal = input("Valor em octal: ")
     octalConvertidoEmDecimal = int(valorEmOctal, 8)
     print(f"{'octal':>10}{'decimal':>20}")
     print(f"{valorEmOctal:>10}{octalConvertidoEmDecimal:>20}")
 
 
-def decimalParaHexadecimal():
+def decimalParaHexadecimal() -> None:
     valor = leiaInt("Valor decimal: ")
     decimalConvertidoEmHexadecimal = hex(valor)[2:]
     print(f"{'decimal':>10}{'hexadecimal':>20}")
     print(f"{valor:>10}{decimalConvertidoEmHexadecimal:>20}")
 
 
-def hexadecimalParaDecimal():
+def hexadecimalParaDecimal() -> None:
     valor = input("Valor em hexadecimal: ")
     hexadecimalConvertidoEmDecimal = int(valor, 16)
     print(f"{'HEXADECIMAL':>10}{'DECIMAL':>20}")
     print(f"{valor:>10}{hexadecimalConvertidoEmDecimal:>20}")
 
 
-def calculaMóduloDeUmNumero():
+def calculaMóduloDeUmNumero() -> None:
     num = leiaInt("Valor: ")
     modulo = num * -1 if num < 0 else num
     print(f"{'valor':>10}{'módulo':>20}")
     print(f"{num:>8}{modulo:>19}")
 
-def calculaModaDeUmaListaDeNumeros():
+def calculaModaDeUmaListaDeNumeros() -> None:
     #variáveis/variáveis compostas
     valores = {}
     listaNumeros = list()
@@ -268,8 +274,7 @@ def calculaModaDeUmaListaDeNumeros():
             valores[f"{ultimoValorAdicionado}"] = [ultimoValorAdicionado]
         valorAdicionadoAoDicionario = False
             
-
-    #define a moda
+    # daqui para baixo é o código que determina a moda
     for lista in valores.values():
         # significa que é o primeiro laço do for e então a variável "maiorLista" está zerada
         if maiorLista == 0:
@@ -286,7 +291,7 @@ def calculaModaDeUmaListaDeNumeros():
     print(f"A moda da lista de números {listaNumeros} vale {moda}")
 
 
-def calculaMedianaDeUmaListaDeNumeros():
+def calculaMedianaDeUmaListaDeNumeros() -> None:
     listaNumeros = []
     quantidadeValores = leiaInt("Quantidade de valores: ")
     cont = 0
@@ -295,11 +300,17 @@ def calculaMedianaDeUmaListaDeNumeros():
         cont += 1
     listaNumeros.sort()
     tamanhoLista = len(listaNumeros)
+    # var "numeroDoMeio" --> o número do meio da lista de número fornecida 
+    numeroDoMeio = listaNumeros[tamanhoLista // 2]
+    # var "numeroDoMeioDois" --> o "segundo" número do meio da lista que nesse caso será de uma lista com quantidade par de valores
+    numeroDoMeioDois = listaNumeros[(tamanhoLista // 2) - 1]
+    # daqui para baixo, o código define a mediana
     if tamanhoLista % 2 == 0:
-        # [1, 2, 3, 4, 5, 6]
-        mediana = ((listaNumeros[((tamanhoLista - 1) // 2)]) + (listaNumeros[((tamanhoLista - 1) // 2) + 1])) / 2
+        # mediana de uma lista par de valores
+        mediana = (numeroDoMeio + numeroDoMeioDois)  / 2
     else:
-        mediana = (listaNumeros[tamanhoLista // 2])
+        #mediana de uma lista ímpar de valores
+        mediana = numeroDoMeio
 
     print(f"A mediana da lista de números {listaNumeros} vale {mediana} ")
     
