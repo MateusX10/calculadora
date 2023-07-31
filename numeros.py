@@ -241,37 +241,66 @@ def calculaMóduloDeUmNumero():
     print(f"{num:>8}{modulo:>19}")
 
 def calculaModaDeUmaListaDeNumeros():
-    listaNumeros = []
+    #variáveis/variáveis compostas
     valores = {}
-    cont = 1
+    listaNumeros = list()
+    cont = 0
     ultimoValorAdicionado = maiorLista = moda =  0
     valorAdicionadoAoDicionario = False
     totalNumeros = leiaInt("Quantidade de números: ")
-    while (cont <= totalNumeros):
-        listaNumeros.append(leiaInt(f"{cont}º valor: "))
+
+    # while vai executar o número de vezes especificada pelo usuário na variáveis "totalNumeros",isto é, a quantidade de números que o usuário vai dar na entrada de dados
+    while (cont < totalNumeros) :
+        listaNumeros.append(leiaInt(f"{cont + 1}º valor: "))
         ultimoValorAdicionado = listaNumeros[-1]
         cont += 1
-        # verifica se o dict está vazio
+        # verifica se o dicionário está vazio
         if valores:
+            # pega cada lista contida no dicionário e verifica se o último valor lido pelo teclado já existe no dicionário: se já existir em uma lista "x" do dicionário, então o valor que já existe é adicionado a essa lista de números que corresponde com esse número a fim de que no final possa-se medir o tamanho de cada lista, a lista que tiver mais valores indica a moda.Cada valor adicionado lido pelo teclado é adicionado em uma lista diferente do dicionário, isto é, os mesmos valores ficam na mesma lista e valores diferentes ficam em listas diferentes e assim no final a lista que tiver mais valores será a moda.Ex: {"2":[2,2,2,2]   "1":[1,1,1,1,1] "5":[5,5,5,5,5] "3":[3] "10":[10,10]  "12":[12,12]} --> mesmos valores são colocados na mesma lista
             for lista in valores.values():
                 if ultimoValorAdicionado in lista:
                     lista.append(ultimoValorAdicionado)
+                    #indica que um valor já foi adicionado ao dicionário
                     valorAdicionadoAoDicionario = True
-        else:
-            if (not valorAdicionadoAoDicionario):
-                valores[f"{ultimoValorAdicionado}"] = [ultimoValorAdicionado]
-            valorAdicionadoAoDicionario = False
+
+        #  se o dicionário estiver vazio ou o valor lido pelo usuário não existir no dicionário, então é criada uma nova chave com esse valor e o valor da chave será o mesmo que a chave.
+        if not valores or not valorAdicionadoAoDicionario:
+            valores[f"{ultimoValorAdicionado}"] = [ultimoValorAdicionado]
+        valorAdicionadoAoDicionario = False
+            
 
     #define a moda
     for lista in valores.values():
+        # significa que é o primeiro laço do for e então a variável "maiorLista" está zerada
         if maiorLista == 0:
+            # var "maiorLista" está recebendo o comprimento/tamanho da lista atual do laço
             maiorLista = len(lista)
+            # nesse caso, é atribuído um valor da lista contida no dicionário
             moda = lista[0]
+        # significa que é a segunda iteração do for ou adiante
         else:
+            # verifica se o comprimento da lista atual lida no laço é maior que o tamanho da maior lista lida até agora
             if len(lista) > maiorLista:
                 maiorLista = len(lista)
                 moda = lista[0]
     print(f"A moda da lista de números {listaNumeros} vale {moda}")
 
 
+def calculaMedianaDeUmaListaDeNumeros():
+    listaNumeros = []
+    quantidadeValores = leiaInt("Quantidade de valores: ")
+    cont = 0
+    while cont < quantidadeValores:
+        listaNumeros.append(leiaInt(f"{cont + 1}º valor: "))
+        cont += 1
+    listaNumeros.sort()
+    tamanhoLista = len(listaNumeros)
+    if tamanhoLista % 2 == 0:
+        # [1, 2, 3, 4, 5, 6]
+        mediana = ((listaNumeros[((tamanhoLista - 1) // 2)]) + (listaNumeros[((tamanhoLista - 1) // 2) + 1])) / 2
+    else:
+        mediana = (listaNumeros[tamanhoLista // 2])
+
+    print(f"A mediana da lista de números {listaNumeros} vale {mediana} ")
+    
     

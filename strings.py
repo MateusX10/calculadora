@@ -24,6 +24,8 @@ def menu():
 [ 21 ] - Decimal para hexadecimal
 [ 22 ] - Hexadecimal para decimal
 [ 23 ] - Módulo
+[ 24 ] - Moda
+[ 25 ] - Mediana
 [ 0 ] - Sair
 ''')
     
