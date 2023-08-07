@@ -1,33 +1,57 @@
+menu = [["OPERAÇÕES BÁSICAS", "POTENCIAÇÃO/RAIZ", "ESTATÍSTICAS", "TRIGONOMETRIA","CONJUNTOS", "CONVERSÃO DE BASES", "ARREDONDAMENTO", "OUTROS", "SAIR"],
+
+["ADIÇÃO", "SUBTRAÇÃO", "MULTIPLICAÇÃO", "DIVISÃO"],
+        
+["POTENCIAÇÃO", "RAIZ"],
+
+["Média", "MEDIANA", "MODA", "Mínimo e Máximo"],
+
+["HIPOTENUSA", "SENO", "COSSENO", "TANGENTE"],
+
+["UNIÃO"],
+
+["DECIMAL PARA BINÁRIO", "BINÁRIO PARA DECIMAL", "DECIMAL PARA OCTAL","OCTAL PARA DECIMAL", "DECIMAL PARA HEXADECIMAL","HEXADECIMAL PARA DECIMAL"],
+
+["PARA CIMA", "PARA BAIXO"],
+
+["PORCENTAGEM", "FATORIAL", "LOGARITMO", "MÓDULO"]
+]
+
+
 # Menu de opções
-def menu():
-    print('''\nMenu:
-[ 1 ] - Somar
-[ 2 ] - Subtrair
-[ 3 ] - Multiplicar
-[ 4 ] - Dividir
-[ 5 ] - Potenciar
-[ 6 ] - Raiz quadrada
-[ 7 ] - Fatorial
-[ 8 ] - Porcentagem
-[ 9 ] - Arredondar para cima
-[ 10 ] - Arredondar para baixo
-[ 11 ] - Seno
-[ 12 ] - Cosseno
-[ 13 ] - Tangente
-[ 14 ] - Logaritmo
-[ 15 ] - Média
-[ 16 ] - mínimo e máximo
-[ 17 ] - decimal para binário
-[ 18 ] - binário para decimal
-[ 19 ] - Decimal para octal
-[ 20 ] - Octal para decimal
-[ 21 ] - Decimal para hexadecimal
-[ 22 ] - Hexadecimal para decimal
-[ 23 ] - Módulo
-[ 24 ] - Moda
-[ 25 ] - Mediana
-[ 0 ] - Sair
-''')
+def exibeMenu(codigo):
+    print("\nMENU:\n")
+    for indice, valor in enumerate(menu[codigo]):
+        print(f"[ {indice + 1} ] - {valor}\n")
+
+
+    
+
+'''# Menu de opções
+menu_opcs = ["SOMAR", "SUBTRAIR", "MULTIPLICAR", "DIVIDIR","POTENCIAÇÃO","RADICIAÇÃO", "FATORIAL", "PORCENTAGEM", "ARREDONDAR PARA CIMA","ARREDONDAR PARA BAIXO", "SENO", "COSSENO", "TANGENTE","LOGARITMO", "MÉDIA", "MÍNIMO E MÁXIMO", "DECIMAL PARA BINÁRIO",
+            "BINÁRIO PARA DECIMAL", "DECIMAL PARA OCTAL",
+               "OCTAL PARA DECIMAL", "DECIMAL PARA HEXADECIMAL",
+               "HEXADECIMAL PARA DECIMAL","MÓDULO", "MODA", "MEDIANA",
+                "UNIÃO DE CONJUNTOS", "SAIR"]
+
+menu_principal = ["OPERAÇÕES BÁSICAS", "POTENCIAÇÃO/RAIZ", "ESTATÍSTICAS", "TRIGONOMETRIA","CONJUNTOS", "CONVERSÃO DE BASES", "ARREDONDAMENTO", "OUTROS"]
+
+menu_operacoes_basicas = ["SOMAR", "SUBTRAIR", "MULTIPLICAR", "DIVIDIR"]
+
+menu_potencia_raiz = ["POTENCIAÇÃO", "RAIZ"]
+
+menu_estatistica = ["Média", "Mínimo e Máximo", "Moda","Mediana"]
+
+menu_trigonometria = ["HIPOTENUSA", "SENO", "COSSENO", "TANGENTE"]
+
+menu_conjuntos = ["UNIÃO"]
+
+menu_conversao_bases = ["DECIMAL PARA BINÁRIO",
+            "BINÁRIO PARA DECIMAL", "DECIMAL PARA OCTAL","OCTAL PARA DECIMAL", "DECIMAL PARA HEXADECIMAL","HEXADECIMAL PARA DECIMAL"]
+
+menu_arredondamento = ["PARA CIMA", "PARA BAIXO"]
+
+menu_outros = ["FATORIAL", "PORCENTAGEM", "LOGARITMO", "MÓDULO"]'''
     
 # Quebra linha
 def QuebrarLinha(linhas=1):

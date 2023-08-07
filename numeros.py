@@ -1,7 +1,7 @@
 import sys 
 
 # define a quantidade máxima de dígitos da saída de uma operação matemática
-sys.set_int_max_str_digits(900000000)
+#sys.set_int_max_str_digits(900000000)
 
 
 # Valida um valor inteiro lido pelo teclado
@@ -313,5 +313,34 @@ def calculaMedianaDeUmaListaDeNumeros() -> None:
         mediana = numeroDoMeio
 
     print(f"A mediana da lista de números {listaNumeros} vale {mediana} ")
+
+
+def defineDoisConjuntos():
+    from strings import title
+
     
+    conjunto1 = set()
+    conjunto2 = set()
+    quantidadeValoresDoConjunto1 = quantidadeValoresDoConjunto2 = 0
+
+    # define quantos valores terá cada um dos dois conjuntos.Conjuntos vazios não são permitidos.O 
+    while not quantidadeValoresDoConjunto1 or not quantidadeValoresDoConjunto2:
+        quantidadeValoresDoConjunto1 = leiaInt("Quantos valores terá o conjunto 1? ")
+        quantidadeValoresDoConjunto2 = leiaInt("Quantos valores terá o conjunto 2? ")
+        if quantidadeValoresDoConjunto1 == 0 or quantidadeValoresDoConjunto2 == 0:
+            print("\033[1;31mPor favor, não deixe nenhum conjunto vazio!\033[m")
+
+    title("conjunto 1")
+    # O for vai iterar o número de vezes de acordo com a quantidade de valores que o usuário requisitou para o conjunto 1.Em cada iteração, é adicionado um novo valor ao conjunto, valor esse que é definido pelo usuário.(o mesmo para o segundo for logo abaixo)
+    for indice in range(0,quantidadeValoresDoConjunto1):
+        conjunto1.add(leiaInt(f"{indice + 1}º valor: "))
+    title("conjunto 2")
+    for indice in range(0, quantidadeValoresDoConjunto2):
+        conjunto2.add(leiaInt(f"{indice + 1}º valor: "))
     
+def UnirDoisConjuntos():
+    lista_conjunto = defineDoisConjuntos()
+    # faz a união entre os dois conjuntos 
+    uniao = conjunto1.union(conjunto2)
+
+    print(f"\nA união entre os conjuntos {conjunto1} e {conjunto2} é {uniao}")
