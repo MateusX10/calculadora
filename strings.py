@@ -24,6 +24,9 @@ def exibeMenu(codigo):
     for indice, valor in enumerate(menu[codigo]):
         print(f"[ {indice + 1} ] - {valor}\n")
 
+        if (indice + 1) == len(menu[codigo]):
+            print(f"[ 999 ] - Voltar\n")
+
 
     
 

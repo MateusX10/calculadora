@@ -1,5 +1,7 @@
 from strings import *
 from numeros import *
+from sistema_operacional import *
+from os import system
 from time import sleep
 
 # Chama a função "title" para que imprima o título "CALCULADORA"
@@ -27,9 +29,18 @@ while True:
 
     #title(menu_opcs[escolha_user - 1])
     # <<< MENU >>>
-    exibeMenu(escolha_user)
 
-    escolha_user2 = leiaInt("Faça a sua escolha: ")
+    while True:
+        exibeMenu(escolha_user)
+
+        escolha_user2 = leiaInt("Faça a sua escolha: ")
+
+        if verificaSeOpcaoEscolhidaExisteNaLista(escolha_user, escolha_user2):
+            break
+        print("\033[1;31mPor favor, escolha uma operação matemática existente!\033[m")
+
+    if escolha_user2 == 999:
+        continue
 
     title(menu[escolha_user][escolha_user2 - 1])
 
@@ -85,8 +96,7 @@ while True:
 
         # operação de calcular a hipotenusa
         if escolha_user2 == 1:
-            pass
-            #calculaHipotenusa()
+            hipotenusa()
 
         # Operação de calcular o seno
         elif escolha_user2 == 2:
@@ -164,88 +174,10 @@ while True:
             calculaMóduloDeUmNumero()
 
     sleep(1.5)
-        
-    '''# Operação de fatorial
-    elif (escolha_user == 7):
-        fatorial()
-    # Operação de percentual
-    elif (escolha_user == 8):
-        percentual()
-    # operação de arredondar um número para cima
-    elif (escolha_user == 9):
-        ArredondarParaCima()
-
-    # Operação de arredondar um número para abaixo
-    elif (escolha_user == 10):
-        ArredondarParaBaixo()
-
-    # Operação de calcular o seno
-    elif (escolha_user == 11):
-        seno()
-
-    # Operação de calcular o cosseno
-    elif (escolha_user == 12):
-        cosseno()
-    
-    # Operação de calcular a tangente
-    elif (escolha_user == 13):
-        tangente()
-
-    # Operação de calcular logaritmo
-    elif (escolha_user == 14):
-        logaritmo()
-
-    # Operação de Calcular a média
-    elif (escolha_user == 15):
-        media()
-
-    # Operação de definir o valor máximo e o valor mínimo de uma lista de valores
-    elif (escolha_user == 16):
-        valorMinimoMaximo()
-
-    # Operação de converter valor decimal em binário
-    elif (escolha_user == 17):
-        decimalParaBinario()
-
-    # Operação de converter valor binário em decimal
-    elif (escolha_user == 18):
-        binarioParaDecimal()
-
-    # Operação de conversão de decimal para octal
-    elif (escolha_user == 19):
-        decimalParaOctal()
-
-    # Operação de conversão de octal para decimal
-    elif (escolha_user == 20):
-        octalParaDecimal()
-
-    # Operação de conversão de decimal para hexadecimal
-    elif (escolha_user == 21):
-        decimalParaHexadecimal()
-
-    # Operação de conversão de hexadecimal para  decimal
-    elif (escolha_user == 22):
-        hexadecimalParaDecimal()
-
-    # Operação de calcular o módulo
-    elif (escolha_user == 23):
-        calculaMóduloDeUmNumero()
-
-    # Operação de calcular a moda 
-    elif (escolha_user == 24):
-        calculaModaDeUmaListaDeNumeros()
-
-    # Operação de calcular a mediana
-    elif (escolha_user == 25):
-        calculaMedianaDeUmaListaDeNumeros()
-
-    elif (escolha_user == 26):
-        UnirDoisConjuntos()'''
-    
-    # Sair do programa
-    
-        
-    
+    print("\n\nPressione qualquer tecla para continuar")
+    input()
+    sistemaOperacionalDoUsuario = verificaSistemaOperacionalDoUsuario()
+    system(sistemaOperacionalDoUsuario)
     
     
 

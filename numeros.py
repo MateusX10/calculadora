@@ -31,6 +31,21 @@ def leiaFloat(msg) -> float:
         else:
             return (n1)
 
+def verificaSeOpcaoEscolhidaExisteNaLista(categoriaMatematicaEscolhida, operacaoMatematicaEscolhida) -> bool:
+    from strings import menu
+
+    if operacaoMatematicaEscolhida <= len(menu[categoriaMatematicaEscolhida]) and operacaoMatematicaEscolhida > 0 or operacaoMatematicaEscolhida == 999:
+        return True
+
+    else:
+        return False
+    '''if operacaoMatematicaEscolhida > len(menu[categoriaMatematicaEscolhida]) or operacaoMatematicaEscolhida <= 0 and operacaoMatematicaEscolhida != 999:
+        print("\033[1;31mPor favor, escolha uma operação matemática existente!\033[m")
+        return False'''
+
+   
+
+
 def leValores() -> list:
     n1 = leiaFloat("1º valor: ")
     n2 = leiaFloat("2º valor: ")
@@ -116,6 +131,15 @@ def ArredondarParaBaixo() -> None:
     n1 = leiaFloat('Informe o número que deseja arredondar para baixo: ')
     result = floor(n1)
     print(f'{n1} arredondado para baixo = {result}')
+
+# Calcula a hipotenusa
+def hipotenusa():
+    from math import hypot
+
+    catetoOposto = leiaFloat("Cateto oposto: ")
+    catetoAdjacente = leiaFloat("Cateto adjacente: ")
+    hipotenusa = hypot(catetoOposto, catetoAdjacente)
+    print(f"A hipotenusa vale {hipotenusa}")
 
 # Calcula o seno
 def seno() -> None:
