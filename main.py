@@ -117,6 +117,18 @@ while True:
         if escolha_user2 == 1:
             UnirDoisConjuntos()
 
+        # Operação de interseção de dois conjuntos
+        elif escolha_user2 == 2:
+            InterseçãoDeDoisConjuntos()
+
+        # Calcula a diferença entre dois conjuntos
+        elif escolha_user2 == 3:
+            diferencaDeDoisConjuntos()
+
+        # Verifica se um conjunto A é subconjunto de um conjunto B 
+        elif escolha_user2 == 4:
+            verificaSeConjunto_e_SubconjuntoDeOutro()
+
     elif escolha_user == 6:
 
         # Operação de conversão decimal - binário

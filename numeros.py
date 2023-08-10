@@ -237,26 +237,28 @@ def binarioParaDecimal() -> None:
     print(f"{valorBinario:>10}{binarioConvertidoParaDecimal:>20}")
 
 
+# Converte de decimal para octal
 def decimalParaOctal() -> None:
     valor = leiaInt("Valor decimal a ser convertido: ")
     decimalParaOctal = oct(valor)[2:]
     print(f"{'decimal':>10}{'octal':>20}")
     print(f'{valor:>10}{decimalParaOctal:>20}')
 
+# Converte de octal para decimal
 def octalParaDecimal() -> None:
     valorEmOctal = input("Valor em octal: ")
     octalConvertidoEmDecimal = int(valorEmOctal, 8)
     print(f"{'octal':>10}{'decimal':>20}")
     print(f"{valorEmOctal:>10}{octalConvertidoEmDecimal:>20}")
 
-
+# Converte de decimal para hexadecimal
 def decimalParaHexadecimal() -> None:
     valor = leiaInt("Valor decimal: ")
     decimalConvertidoEmHexadecimal = hex(valor)[2:]
     print(f"{'decimal':>10}{'hexadecimal':>20}")
     print(f"{valor:>10}{decimalConvertidoEmHexadecimal:>20}")
 
-
+# Converte de hexadecimal para decimal
 def hexadecimalParaDecimal() -> None:
     valor = input("Valor em hexadecimal: ")
     hexadecimalConvertidoEmDecimal = int(valor, 16)
@@ -264,12 +266,15 @@ def hexadecimalParaDecimal() -> None:
     print(f"{valor:>10}{hexadecimalConvertidoEmDecimal:>20}")
 
 
+# Calcula o módulo
 def calculaMóduloDeUmNumero() -> None:
     num = leiaInt("Valor: ")
     modulo = num * -1 if num < 0 else num
     print(f"{'valor':>10}{'módulo':>20}")
     print(f"{num:>8}{modulo:>19}")
 
+
+# Calcula moda
 def calculaModaDeUmaListaDeNumeros() -> None:
     #variáveis/variáveis compostas
     valores = {}
@@ -315,6 +320,7 @@ def calculaModaDeUmaListaDeNumeros() -> None:
     print(f"A moda da lista de números {listaNumeros} vale {moda}")
 
 
+# Calcula a mediana 
 def calculaMedianaDeUmaListaDeNumeros() -> None:
     listaNumeros = []
     quantidadeValores = leiaInt("Quantidade de valores: ")
@@ -339,7 +345,8 @@ def calculaMedianaDeUmaListaDeNumeros() -> None:
     print(f"A mediana da lista de números {listaNumeros} vale {mediana} ")
 
 
-def defineDoisConjuntos():
+# Lê e retorna dois conjuntos definidos e não nulos
+def defineDoisConjuntos() -> list:
     from strings import title
 
     
@@ -361,10 +368,61 @@ def defineDoisConjuntos():
     title("conjunto 2")
     for indice in range(0, quantidadeValoresDoConjunto2):
         conjunto2.add(leiaInt(f"{indice + 1}º valor: "))
+
+    return [conjunto1,conjunto2]
     
+
+# Faz a união de dois conjuntos
 def UnirDoisConjuntos():
     lista_conjunto = defineDoisConjuntos()
+
+    conjunto1 = lista_conjunto[0]
+    conjunto2 = lista_conjunto[1]
     # faz a união entre os dois conjuntos 
     uniao = conjunto1.union(conjunto2)
 
     print(f"\nA união entre os conjuntos {conjunto1} e {conjunto2} é {uniao}")
+
+
+# Calcula a interseção entre dois conjuntos
+def InterseçãoDeDoisConjuntos():
+    lista_conjuntos = defineDoisConjuntos()
+    conjunto1 = lista_conjuntos[0]
+    conjunto2 = lista_conjuntos[1]
+    intersecao = conjunto1.intersection(conjunto2)
+
+    print(f"A interseção entre os conjuntos {conjunto1} e {conjunto2} é {intersecao}")
+
+# Calcula a diferença entre dois conjuntos
+def diferencaDeDoisConjuntos():
+    lista_conjuntos = defineDoisConjuntos()
+    conjunto1 = lista_conjuntos[0]
+    conjunto2 = lista_conjuntos[1]
+    
+    # determina a diferença do conjunto A para o conjunto B
+    diferenca = conjunto1.difference(conjunto2)
+
+    # indica que não há diferença 
+    if not diferenca:
+        print(f"\033[1;31mNão há diferença do conjunto {conjunto1} para o conjunto {conjunto2}\033[m")
+        return
+
+    # há diferença
+    print(f"A diferença do conjunto {conjunto1}  para o conjunto {conjunto2} vale {diferenca}")
+
+
+def verificaSeConjunto_e_SubconjuntoDeOutro():
+    lista_conjuntos = defineDoisConjuntos()
+
+    conjunto1 = lista_conjuntos[0]
+    conjunto2 = lista_conjuntos[1]
+
+    # determina se é subconjunto - True (é subconjunto) ; False (não é subconjunto)
+    isSubSet = conjunto1.issubset(conjunto2)
+
+    # Verifica se conjunto 1 é subconjunto de conjunto 2
+    if isSubSet:
+        print(f"Conjunto {conjunto1} é um subconjunto do conjunto {conjunto2}")
+
+    else:
+        print(f"Conjunto {conjunto1} não é um subconjunto do conjunto {conjunto2}")

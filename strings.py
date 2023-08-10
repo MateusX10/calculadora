@@ -8,7 +8,7 @@ menu = [["OPERAÇÕES BÁSICAS", "POTENCIAÇÃO/RAIZ", "ESTATÍSTICAS", "TRIGONO
 
 ["HIPOTENUSA", "SENO", "COSSENO", "TANGENTE"],
 
-["UNIÃO"],
+["UNIÃO", "INTERSEÇÃO","DIFERENÇA", "SUBCONJUNTO"],
 
 ["DECIMAL PARA BINÁRIO", "BINÁRIO PARA DECIMAL", "DECIMAL PARA OCTAL","OCTAL PARA DECIMAL", "DECIMAL PARA HEXADECIMAL","HEXADECIMAL PARA DECIMAL"],
 
@@ -24,7 +24,7 @@ def exibeMenu(codigo):
     for indice, valor in enumerate(menu[codigo]):
         print(f"[ {indice + 1} ] - {valor}\n")
 
-        if (indice + 1) == len(menu[codigo]):
+        if (indice + 1) == len(menu[codigo]) and codigo != 0:
             print(f"[ 999 ] - Voltar\n")
 
 
