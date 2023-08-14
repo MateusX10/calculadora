@@ -31,21 +31,20 @@ def leiaFloat(msg) -> float:
         else:
             return (n1)
 
+# Verifica se a opção escolhida pelo usuário existe
 def verificaSeOpcaoEscolhidaExisteNaLista(categoriaMatematicaEscolhida, operacaoMatematicaEscolhida) -> bool:
     from strings import menu
 
+    # a opção existe
     if operacaoMatematicaEscolhida <= len(menu[categoriaMatematicaEscolhida]) and operacaoMatematicaEscolhida > 0 or operacaoMatematicaEscolhida == 999:
         return True
 
+    # a opção não existe
     else:
         return False
-    '''if operacaoMatematicaEscolhida > len(menu[categoriaMatematicaEscolhida]) or operacaoMatematicaEscolhida <= 0 and operacaoMatematicaEscolhida != 999:
-        print("\033[1;31mPor favor, escolha uma operação matemática existente!\033[m")
-        return False'''
-
    
 
-
+# lê dois valores pelo teclado e os retorna em uma lista
 def leValores() -> list:
     n1 = leiaFloat("1º valor: ")
     n2 = leiaFloat("2º valor: ")
@@ -129,8 +128,8 @@ def ArredondarParaBaixo() -> None:
     from math import floor
 
     n1 = leiaFloat('Informe o número que deseja arredondar para baixo: ')
-    result = floor(n1)
-    print(f'{n1} arredondado para baixo = {result}')
+    result = lambda numero: floor(numero)
+    print(f'{n1} arredondado para baixo = {result(n1)}')
 
 # Calcula a hipotenusa
 def hipotenusa():
@@ -138,35 +137,38 @@ def hipotenusa():
 
     catetoOposto = leiaFloat("Cateto oposto: ")
     catetoAdjacente = leiaFloat("Cateto adjacente: ")
-    hipotenusa = hypot(catetoOposto, catetoAdjacente)
-    print(f"A hipotenusa vale {hipotenusa}")
+    #
+    hipotenusa = lambda cateto1, cateto2: hypot(cateto1, cateto2)
+    print(f"A hipotenusa vale {hipotenusa(catetoOposto, catetoAdjacente)}")
 
 # Calcula o seno
 def seno() -> None:
     from math import sin, radians
 
 
-    n = float(input("Valor do seno a ser calculado: "))
-    result = sin(radians(n))
-    print(f"Seno de {n}° = {result:.1f}")
+    #n = float(input("Valor do seno a ser calculado: "))
+    n = leiaFloat("Valor do seno a ser calculado: ")
+    #result = sin(radians(n))
+    result = lambda num: sin(radians(num))
+    print(f"Seno de {n}° = {result(n)}")
 
 # Calcula o cosseno
 def cosseno() -> None:
     from math import cos, radians
 
 
-    n = float(input("Valor do cosseno a ser calculado: "))
+    n = leiaFloat("Valor do cosseno a ser calculado: ")
     result = cos(radians(n))
-    print(f"Cosseno de {n}° = {result:.1f}")
+    print(f"Cosseno de {n}° = {result}")
 
 # Calcula a tangente
 def tangente() -> None:
     from math import tan, radians
 
 
-    n = float(input("Valor da tangente a ser calculada: "))
+    n = leiaFloat("Valor da tangente a ser calculada: ")
     result = tan(radians(n))
-    print(f"Tangente de {n}° = {result:.1f}")
+    print(f"Tangente de {n}° = {result}")
 
 
 # Calcula o logaritmo de uma dada base e logaritmando
@@ -175,12 +177,12 @@ def logaritmo() -> None:
     from time import sleep
 
 
-    base = float(input("Base do logaritmo: "))
-    logaritmando = float(input("Logaritmando do logaritmo: "))
+    base = leiaFloat("Base do logaritmo: ")
+    logaritmando = leiaFloat("Logaritmando do logaritmo: ")
     result = log(logaritmando, base)
     print(f"Calculando logaritmo de base {base:.1f} e de logaritmando {logaritmando:.1f}...")
     sleep(1)
-    print(f"= {result:.1f}")
+    print(f"= {result}")
 
 
 # Calcula a média entre n valores determinados pelo usuário
@@ -208,6 +210,8 @@ def media() -> None:
 def valorMinimoMaximo() -> None:
     quantidade_valores = 0
     lista_valores = []
+
+    # while é executado até que o usuário defina uma quantidade de valores superior a 1
     while True:
         quantidade_valores = leiaInt("Quantos valores a lista terá? ")
         if (quantidade_valores < 1):
@@ -215,11 +219,19 @@ def valorMinimoMaximo() -> None:
             print("Por favor, tente novamente...\033[m")
         else:
             break
+    
+    # permite ao usuário adicionar "n" valores a lista "lista_valores"
     for vlr in range(0, quantidade_valores):
         lista_valores.append(leiaFloat(f"{vlr + 1}º valor: "))
-    vlr_min = min(lista_valores)
-    vlr_max = max(lista_valores)
-    print(f"Valor mínimo = {vlr_min} \nValor máximo = {vlr_max}")
+
+    # Função lambda que retorna o mínimo e máximo de uma lista de números
+    minimoMaximo = lambda lista: [min(lista), max(lista)]
+    # pega o menor valor da lista de núumeros
+    menor_valor = minimoMaximo(lista_valores)[0]
+    # Pega o maior valor da lista de números
+    maior_valor = minimoMaximo(lista_valores)[-1]
+
+    print(f"Valor mínimo = {menor_valor} \nValor máximo = {maior_valor}")
 
 
 # Converte um valor decimal em binário

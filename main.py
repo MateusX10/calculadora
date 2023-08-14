@@ -14,34 +14,38 @@ while True:
     # Imprime o menu de opções na tela
     exibeMenu(0)
     # a operação matemática escolhida pelo usuário
-    escolha_user = leiaInt("Faça a sua escolha: ")
+    escolha_user = leiaInt("Sua escolha: ")
     
     # Sair
     if escolha_user == 9:
         print("<<< VOLTE SEMPRE >>>")
         quit()
 
-
+    # Verifica se a opção escolhida pelo usuário é válida
     if (escolha_user >= len(menu[0]) or escolha_user < 0):
         print("\033[1;31mPor favor, digite apenas os números especificados no menu...\033[m")
         continue
         
 
     #title(menu_opcs[escolha_user - 1])
-    # <<< MENU >>>
+    #<<< MENU >>>
 
+    # Esse while vai continuar sua execução até o usuário escolher uma operação matemática válida 
     while True:
         exibeMenu(escolha_user)
 
         escolha_user2 = leiaInt("Faça a sua escolha: ")
 
+        
         if verificaSeOpcaoEscolhidaExisteNaLista(escolha_user, escolha_user2):
             break
         print("\033[1;31mPor favor, escolha uma operação matemática existente!\033[m")
 
+    # Usuário quis voltar para o menu principal
     if escolha_user2 == 999:
         continue
-
+    
+    # Exibe um título da operação matemática escolhida pelo usuário
     title(menu[escolha_user][escolha_user2 - 1])
 
     # Operações básicas
@@ -186,9 +190,12 @@ while True:
             calculaMóduloDeUmNumero()
 
     sleep(1.5)
-    print("\n\nPressione qualquer tecla para continuar")
+    print("\n\nPressione enter para continuar")
+    # dá uma pausa/gelo no programa
     input()
+    # verifica S.O do usuário e retorna o respectivo comando para limpar a tela
     sistemaOperacionalDoUsuario = verificaSistemaOperacionalDoUsuario()
+    # limpa a telq
     system(sistemaOperacionalDoUsuario)
     
     
