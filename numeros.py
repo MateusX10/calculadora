@@ -438,3 +438,16 @@ def verificaSeConjunto_e_SubconjuntoDeOutro():
 
     else:
         print(f"Conjunto {conjunto1} não é um subconjunto do conjunto {conjunto2}")
+
+
+# pega o cálculo e o resultado de uma operação matemática e retorna para o módulo "arquivos.py" para que seja as novas operações matemáticas sejam inclusas no histórico
+def pegaResultadoDaOperacaoMatematica(resultadoOperacao) -> str:
+    from arquivos import obtemOPeracaoMatematica
+
+    # chama a função do módulo "arquivos.py" que vai obter a operação 
+    obtemOPeracaoMatematica(resultadoOperacao)
+
+
+
+
+    
