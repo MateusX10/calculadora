@@ -56,6 +56,8 @@ def somar() -> None:
     result = valores[0] + valores[1]
     print(f"{valores[0]} + {valores[1]} = {result}")
 
+    pegaResultadoDaOperacaoMatematica("soma", [valores[0], valores[1]], result)
+
 # Retorna a subtração de dois número de ponto flutuante
 def subtrair() -> None:
     valores = leValores()
@@ -437,17 +439,49 @@ def verificaSeConjunto_e_SubconjuntoDeOutro():
         print(f"Conjunto {conjunto1} é um subconjunto do conjunto {conjunto2}")
 
     else:
-        print(f"Conjunto {conjunto1} não é um subconjunto do conjunto {conjunto2}")
+        print(f"Conjunto {conjunto1} não é um subconjunto do conjunto{conjunto2}")
+        
 
 
-# pega o cálculo e o resultado de uma operação matemática e retorna para o módulo "arquivos.py" para que seja as novas operações matemáticas sejam inclusas no histórico
-def pegaResultadoDaOperacaoMatematica(resultadoOperacao) -> str:
-    from arquivos import obtemOPeracaoMatematica
+# pega o cálculo e o resultado de uma operação matemática e retorna para o módulo "arquivos.py" para que as novas operações matemáticas sejam inclusas no histórico da calculadora
+def pegaResultadoDaOperacaoMatematica(operacao, valoresCalculo, resultadoOperacao) -> str:
+    from arquivos import obtemOperacaoMatematica
+
+
+    valorFormatado = formataCalculoDeUmaOPeracaoMatematica(operacao, valoresCalculo,resultadoOperacao)
 
     # chama a função do módulo "arquivos.py" que vai obter a operação 
-    obtemOPeracaoMatematica(resultadoOperacao)
+    obtemOperacaoMatematica(valorFormatado)
 
 
 
+# Formata o cálculo e o seu resultado para que seja exibido no histórico da calculadora
+def formataCalculoDeUmaOPeracaoMatematica(operacaoMatematica, valoresCalculo, resultadoOperacao):
 
+    if operacaoMatematica == "soma":
     
+        valorFormatado = f"ADIÇÃO \n{valoresCalculo[0]} + {valoresCalculo[1]} = {resultadoOperacao}\n"
+
+    return str(valorFormatado)
+
+
+
+# Verifica se a linha atual do arquivo "historico.txt" é o nome de uma operação matemática (ex: ADIÇÃO, SUBTRAÇÃO, MULTIPLICAÇÃO...).Se for, é retornado True
+def verificaSeLinhaAtual_e_NomeDeUmaOperacao(linhaAtual) -> bool:
+    from strings import menu
+
+    # começa com "1" para ignorar as categorias de operações matemáticas (ex: OPERAÇÕES BÁSICAS, CONJUNTOS)
+    cont = 1
+
+    # percorre a lista de operações matemáticas "menu" inteira
+    while cont < len(menu):
+            # percorre uma categoria específica inteira da lista "menu"
+            for operacao in menu[cont]:
+                # Verifica se a linha atual é o nome de uma operação matemática (ex: ADIÇÃO)
+                if linhaAtual.strip() == operacao:
+                    return True
+            
+            cont += 1
+
+    # se não for o nome de uma operação matemática, mas sim provavelmente o próprio cálculo ou resultado, é retorna "False"
+    return False

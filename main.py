@@ -1,6 +1,7 @@
 from strings import *
 from numeros import *
 from sistema_operacional import *
+from arquivos import mostraHistoricoDaCalculadora
 from os import system
 from time import sleep
 
@@ -17,9 +18,13 @@ while True:
     escolha_user = leiaInt("Sua escolha: ")
     
     # Sair
-    if escolha_user == 9:
+    if escolha_user == 10:
         print("<<< VOLTE SEMPRE >>>")
         quit()
+
+    if escolha_user == 9:
+        mostraHistoricoDaCalculadora()
+        continue
 
     # Verifica se a opção escolhida pelo usuário é válida
     if (escolha_user >= len(menu[0]) or escolha_user < 0):
