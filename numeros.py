@@ -56,7 +56,7 @@ def somar() -> None:
     result = valores[0] + valores[1]
     print(f"{valores[0]} + {valores[1]} = {result}")
 
-    pegaResultadoDaOperacaoMatematica("soma", [valores[0], valores[1]], result)
+    pegaResultadoDaOperacaoMatematica("ADIÇÃO", [valores[0], valores[1]], result)
 
 # Retorna a subtração de dois número de ponto flutuante
 def subtrair() -> None:
@@ -64,11 +64,15 @@ def subtrair() -> None:
     result = valores[0] - valores[1]
     print(f"{valores[0]} - {valores[1]} = {result}")
 
+    pegaResultadoDaOperacaoMatematica("SUBTRAÇÃO", [valores[0], valores[1]], result)
+
 # Retorna a multiplicação de dois números ponto flutuante
 def multiplicar() -> None:
     valores = leValores()
     result = valores[0] * valores[1]
     print(f"{valores[0]} x {valores[1]} = {result}")
+
+    pegaResultadoDaOperacaoMatematica("MULTIPLICAÇÃO", [valores[0], valores[1]], result)
 
 # Retorna a divisão de dois números ponto flutuante
 def dividir() -> None:
@@ -82,6 +86,8 @@ def dividir() -> None:
         else:
             print(f"{valores[0]} / {valores[1]} = {result}")
             break
+
+    pegaResultadoDaOperacaoMatematica("DIVISÃO", [valores[0], valores[1]], result)
 
 # Imprime na tela a potência de um número de base "x" e expoente "y" (o usuário escolhe)
 def potenciar() -> None:
@@ -139,7 +145,7 @@ def hipotenusa():
 
     catetoOposto = leiaFloat("Cateto oposto: ")
     catetoAdjacente = leiaFloat("Cateto adjacente: ")
-    #
+    
     hipotenusa = lambda cateto1, cateto2: hypot(cateto1, cateto2)
     print(f"A hipotenusa vale {hipotenusa(catetoOposto, catetoAdjacente)}")
 
@@ -458,9 +464,18 @@ def pegaResultadoDaOperacaoMatematica(operacao, valoresCalculo, resultadoOperaca
 # Formata o cálculo e o seu resultado para que seja exibido no histórico da calculadora
 def formataCalculoDeUmaOPeracaoMatematica(operacaoMatematica, valoresCalculo, resultadoOperacao):
 
-    if operacaoMatematica == "soma":
-    
-        valorFormatado = f"ADIÇÃO \n{valoresCalculo[0]} + {valoresCalculo[1]} = {resultadoOperacao}\n"
+    valorFormatado = ' '
+
+    operacoesBasicas = {"ADIÇÃO": "+", "SUBTRAÇÃO": "-", "MULTIPLICAÇÃO": "x", "DIVISÃO": "/"}
+
+    for nomeOperacao, simboloOperacao in operacoesBasicas.items():
+        if operacaoMatematica == nomeOperacao:
+            simboloMatematico = simboloOperacao
+
+    if operacaoMatematica in operacoesBasicas:
+        valorFormatado = f'''{operacaoMatematica} \n{valoresCalculo[0]} {simboloMatematico} {valoresCalculo[1]} = {resultadoOperacao}\n'''
+
+        
 
     return str(valorFormatado)
 

@@ -1,7 +1,7 @@
 from strings import *
 from numeros import *
 from sistema_operacional import *
-from arquivos import mostraHistoricoDaCalculadora
+from arquivos import mostraHistoricoDaCalculadora, verificaTamanhoDoArquivo, resetaArquivo
 from os import system
 from time import sleep
 
@@ -32,7 +32,6 @@ while True:
         continue
         
 
-    #title(menu_opcs[escolha_user - 1])
     #<<< MENU >>>
 
     # Esse while vai continuar sua execução até o usuário escolher uma operação matemática válida 
@@ -194,14 +193,22 @@ while True:
         elif escolha_user2 == 4:
             calculaMóduloDeUmNumero()
 
+    
+    isFileEqualOrBiggerTo200Lines = verificaTamanhoDoArquivo()
+
+    if isFileEqualOrBiggerTo200Lines:
+        resetaArquivo()
+
     sleep(1.5)
     print("\n\nPressione enter para continuar")
     # dá uma pausa/gelo no programa
     input()
     # verifica S.O do usuário e retorna o respectivo comando para limpar a tela
     sistemaOperacionalDoUsuario = verificaSistemaOperacionalDoUsuario()
-    # limpa a telq
+    # limpa a tela
     system(sistemaOperacionalDoUsuario)
+
+
     
     
 
