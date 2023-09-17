@@ -56,7 +56,7 @@ def somar() -> None:
     result = valores[0] + valores[1]
     print(f"{valores[0]} + {valores[1]} = {result}")
 
-    pegaResultadoDaOperacaoMatematica("ADIÇÃO", [valores[0], valores[1]], result)
+    pegaResultadoDaOperacaoMatematica("ADICAO", [valores[0], valores[1]], result)
 
 # Retorna a subtração de dois número de ponto flutuante
 def subtrair() -> None:
@@ -64,7 +64,7 @@ def subtrair() -> None:
     result = valores[0] - valores[1]
     print(f"{valores[0]} - {valores[1]} = {result}")
 
-    pegaResultadoDaOperacaoMatematica("SUBTRAÇÃO", [valores[0], valores[1]], result)
+    pegaResultadoDaOperacaoMatematica("SUBTRACAO", [valores[0], valores[1]], result)
 
 # Retorna a multiplicação de dois números ponto flutuante
 def multiplicar() -> None:
@@ -72,7 +72,7 @@ def multiplicar() -> None:
     result = valores[0] * valores[1]
     print(f"{valores[0]} x {valores[1]} = {result}")
 
-    pegaResultadoDaOperacaoMatematica("MULTIPLICAÇÃO", [valores[0], valores[1]], result)
+    pegaResultadoDaOperacaoMatematica("MULTIPLICACAO", [valores[0], valores[1]], result)
 
 # Retorna a divisão de dois números ponto flutuante
 def dividir() -> None:
@@ -87,7 +87,7 @@ def dividir() -> None:
             print(f"{valores[0]} / {valores[1]} = {result}")
             break
 
-    pegaResultadoDaOperacaoMatematica("DIVISÃO", [valores[0], valores[1]], result)
+    pegaResultadoDaOperacaoMatematica("DIVISAO", [valores[0], valores[1]], result)
 
 # Imprime na tela a potência de um número de base "x" e expoente "y" (o usuário escolhe)
 def potenciar() -> None:
@@ -95,6 +95,8 @@ def potenciar() -> None:
     expoente = leiaInt("Índice: ")
     result = base ** expoente
     print(f"{base} ** {expoente} = {result}")
+
+    pegaResultadoDaOperacaoMatematica("POTENCIACAO", [base, expoente], result)
 
 # Imprime na tela a raiz quadrada de um número "x"
 def RaizQuadrada() -> None:
@@ -104,6 +106,9 @@ def RaizQuadrada() -> None:
     numero = float(input("Número: "))
     result = sqrt(numero)
     print(f"Raiz quadrada = {result:.1f}")
+
+    pegaResultadoDaOperacaoMatematica("RAIZ", [numero], result)
+
 
 # Imprime na terla o fatorial de um número, juntamento com todo o cálculo por trás do resultado
 def fatorial() -> None:
@@ -121,6 +126,9 @@ def percentual() -> None:
     percentual = leiaFloat("Percentual: ")
     result = n1 * percentual / 100
     print(f'{n1} % {percentual} = {result}')
+
+    pegaResultadoDaOperacaoMatematica("PORCENTAGEM", [n1, percentual], result)
+
 
 # Arredonda um número para cima
 def ArredondarParaCima() -> None:
@@ -191,6 +199,9 @@ def logaritmo() -> None:
     print(f"Calculando logaritmo de base {base:.1f} e de logaritmando {logaritmando:.1f}...")
     sleep(1)
     print(f"= {result}")
+
+    pegaResultadoDaOperacaoMatematica("LOGARITMO", [base,logaritmando], result)
+
 
 
 # Calcula a média entre n valores determinados pelo usuário
@@ -466,7 +477,7 @@ def formataCalculoDeUmaOPeracaoMatematica(operacaoMatematica, valoresCalculo, re
 
     valorFormatado = ' '
 
-    operacoesBasicas = {"ADIÇÃO": "+", "SUBTRAÇÃO": "-", "MULTIPLICAÇÃO": "x", "DIVISÃO": "/"}
+    operacoesBasicas = {"ADICAO": "+", "SUBTRACAO": "-", "MULTIPLICACAO": "x", "DIVISAO": "/", "POTENCIACAO": "**", "PORCENTAGEM": "%"}
 
     for nomeOperacao, simboloOperacao in operacoesBasicas.items():
         if operacaoMatematica == nomeOperacao:
@@ -474,6 +485,11 @@ def formataCalculoDeUmaOPeracaoMatematica(operacaoMatematica, valoresCalculo, re
 
     if operacaoMatematica in operacoesBasicas:
         valorFormatado = f'''{operacaoMatematica} \n{valoresCalculo[0]} {simboloMatematico} {valoresCalculo[1]} = {resultadoOperacao}\n'''
+
+
+    elif operacaoMatematica == "LOGARITMO":
+        valorFormatado = f'''{operacaoMatematica} \nlog_{valoresCalculo[0]}({valoresCalculo[1]}) = {resultadoOperacao}'''
+    
 
         
 
